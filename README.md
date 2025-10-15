@@ -34,10 +34,11 @@ A modern and responsive implementation of the classic 2048 puzzle game, built wi
 
 
 ### Desktop View
-![Desktop Screenshot](link-to-desktop-screenshot.png)
+<img width="1896" height="915" alt="image" src="https://github.com/user-attachments/assets/2f471315-8cf9-478c-b5d3-2f88ac441dd3" />
 
 ### Mobile View
-![Mobile Screenshot](link-to-mobile-screenshot.png)
+<img width="259" height="421" alt="image" src="https://github.com/user-attachments/assets/181ffe71-c6c8-42d1-af8b-2347701ec060" />
+
 
 ## Tech Stack
 
