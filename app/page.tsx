@@ -1,12 +1,13 @@
 "use client"
 
 import { useCallback, useEffect, useMemo, useState } from "react"
-import { initBoard, move, addRandomTile, has2048, isGameOver, type Board, type Direction } from "@/lib/2048"
+import { initBoard, move, addRandomTile, has2048, isGameOver, type Board } from "@/lib/2048"
 import { GameBoard } from "@/components/game-board"
 import { GameControls } from "@/components/game-controls"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { type Direction } from "@/lib/2048"
 
 // Simple game status
 type Status = "playing" | "won" | "lost"
@@ -122,7 +123,7 @@ export default function Page() {
       <div className="w-full max-w-4xl">
         <div className="grid md:grid-cols-2 md:gap-8 items-stretch">
           <div className="relative">
-            <GameBoard board={board} size={size} />
+            <GameBoard board={board} size={size} onMove={handleMove} />
             {overlay}
           </div>
 

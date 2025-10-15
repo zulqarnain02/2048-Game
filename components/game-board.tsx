@@ -1,6 +1,7 @@
 "use client"
-import type { Board } from "@/lib/2048"
+import type { Board, Direction } from "@/lib/2048"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 // Simple token-aligned tile styling with 4 tiers
 function tileClasses(value: number) {
@@ -33,10 +34,36 @@ function fontSize(value: number) {
 export function GameBoard({
   board,
   size,
+  onMove,
 }: {
   board: Board
   size: number
+  onMove: (dir: Direction) => void
 }) {
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY })
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!touchStart) return
+
+    const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY }
+    const dx = touchEnd.x - touchStart.x
+    const dy = touchEnd.y - touchStart.y
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      if (dx > 0) onMove("right")
+      else onMove("left")
+    } else {
+      if (dy > 0) onMove("down")
+      else onMove("up")
+    }
+
+    setTouchStart(null)
+  }
+
   return (
     <div
       role="grid"
@@ -45,6 +72,8 @@ export function GameBoard({
         "rounded-lg p-3 md:p-4 bg-white/30 border-2 border-white/40 shadow-lg backdrop-blur-md h-full",
         "relative", // Needed for tile animations
       )}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div
         className="grid gap-2 md:gap-3"
