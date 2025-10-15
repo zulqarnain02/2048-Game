@@ -43,22 +43,31 @@ export function GameBoard({
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault()
     setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY })
   }
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault()
+  }
+
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault()
     if (!touchStart) return
 
     const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY }
     const dx = touchEnd.x - touchStart.x
     const dy = touchEnd.y - touchStart.y
+    const swipeThreshold = 30 // A reasonable threshold
 
-    if (Math.abs(dx) > Math.abs(dy)) {
-      if (dx > 0) onMove("right")
-      else onMove("left")
-    } else {
-      if (dy > 0) onMove("down")
-      else onMove("up")
+    if (Math.abs(dx) > swipeThreshold || Math.abs(dy) > swipeThreshold) {
+      if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 0) onMove("right")
+        else onMove("left")
+      } else {
+        if (dy > 0) onMove("down")
+        else onMove("up")
+      }
     }
 
     setTouchStart(null)
@@ -73,6 +82,7 @@ export function GameBoard({
         "relative", // Needed for tile animations
       )}
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <div
