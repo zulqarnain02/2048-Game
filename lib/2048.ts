@@ -87,7 +87,7 @@ export const move = (
   if (direction === "up") {
     working = transpose(working)
   } else if (direction === "down") {
-    working = transpose(reverseRows(working))
+    working = reverseRows(transpose(working))
   } else if (direction === "right") {
     working = reverseRows(working)
   }
@@ -104,7 +104,7 @@ export const move = (
   if (direction === "up") {
     finalBoard = transpose(result)
   } else if (direction === "down") {
-    finalBoard = reverseRows(transpose(result))
+    finalBoard = transpose(reverseRows(result))
   } else if (direction === "right") {
     finalBoard = reverseRows(result)
   }
@@ -117,6 +117,7 @@ export const has2048 = (board: Board): boolean => board.some((row) => row.some((
 
 export const canMove = (board: Board): boolean => {
   // Any empty cell?
+  
   if (getEmptyCells(board).length > 0) return true
   const size = board.length
   // Any adjacent equal horizontally or vertically?
@@ -127,6 +128,7 @@ export const canMove = (board: Board): boolean => {
       if (c + 1 < size && board[r][c + 1] === val) return true
     }
   }
+  console.log("no more moves");
   return false
 }
 

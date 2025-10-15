@@ -1,5 +1,20 @@
 # 2048 Game
 
+<p align="center">
+  <a href="https://nextjs.org" target="_blank">
+    <img src="https://img.shields.io/badge/Next.js-14.x-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
+  </a>
+  <a href="https://react.dev" target="_blank">
+    <img src="https://img.shields.io/badge/React-18.x-blue?style=for-the-badge&logo=react&logoColor=white" alt="React">
+  </a>
+  <a href="https://tailwindcss.com" target="_blank">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  </a>
+  <a href="https://www.typescriptlang.org" target="_blank">
+    <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  </a>
+</p>
+
 A modern and responsive implementation of the classic 2048 puzzle game, built with Next.js, React, and Tailwind CSS. The goal is to slide numbered tiles on a grid to combine them and create a tile with the number 2048.
 
 
@@ -31,6 +46,8 @@ A modern and responsive implementation of the classic 2048 puzzle game, built wi
 -   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 -   **UI Components**: [Radix UI](https://www.radix-ui.com/) & [shadcn/ui](https://ui.shadcn.com/)
 -   **Language**: [TypeScript](https://www.typescriptlang.org/)
+-   **Icons**: [Lucide React](https://lucide.dev/guide/packages/lucide-react)
+-   **Theming**: [next-themes](https://www.npmjs.com/package/next-themes)
 -   **Animations**: [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate)
 
 ## Getting Started
@@ -83,6 +100,7 @@ Follow these instructions to get a local copy up and running.
 ├── components/           # Reusable UI components
 │   ├── game-board.tsx    # The game grid component
 │   ├── game-controls.tsx # Controls for board size, restart, and movement
+│   ├── theme-provider.tsx# Theme provider for light/dark mode
 │   └── ui/               # UI components from shadcn/ui
 ├── lib/                  # Core game logic and utilities
 │   ├── 2048.ts           # Game logic (board initialization, moves, etc.)

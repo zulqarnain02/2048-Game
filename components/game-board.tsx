@@ -43,16 +43,14 @@ export function GameBoard({
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault()
     setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY })
   }
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault()
+    // e.preventDefault() // Removed as per edit hint
   }
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault()
     if (!touchStart) return
 
     const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY }
@@ -78,7 +76,7 @@ export function GameBoard({
       role="grid"
       aria-label={`2048 board ${size} by ${size}`}
       className={cn(
-        "rounded-lg p-3 md:p-4 bg-white/30 border-2 border-white/40 shadow-lg backdrop-blur-md h-full",
+        "rounded-lg p-3 md:p-4 bg-white/30 border-2 border-white/40 shadow-lg backdrop-blur-md h-full touch-none",
         "relative", // Needed for tile animations
       )}
       onTouchStart={handleTouchStart}
