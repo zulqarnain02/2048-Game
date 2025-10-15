@@ -26,12 +26,12 @@ A modern and responsive implementation of the classic 2048 puzzle game, built wi
 -   **Score Tracking**: Your score is tracked and updated as you merge tiles.
 -   **Win/Loss Detection**: The game notifies you when you've won by creating a 2048 tile or when you've lost because no more moves are possible.
 -   **Keyboard Controls**: Use arrow keys or WASD keys for intuitive gameplay on desktops.
+-   **Mobile Touch Controls**: Use your finger to swipe tiles on mobile devices for intuitive gameplay.
 -   **Sleek UI**: A clean and modern user interface with smooth animations and a visually appealing color scheme.
 -   **Restart Game**: Easily start a new game at any time.
 
 ## Screenshots
 
-*(Space for screenshots of the game in action. Add your images here.)*
 
 ### Desktop View
 ![Desktop Screenshot](link-to-desktop-screenshot.png)
@@ -44,10 +44,9 @@ A modern and responsive implementation of the classic 2048 puzzle game, built wi
 -   **Framework**: [Next.js](https://nextjs.org/)
 -   **Library**: [React](https://reactjs.org/)
 -   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **UI Components**: [Radix UI](https://www.radix-ui.com/) & [shadcn/ui](https://ui.shadcn.com/)
+-   **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
 -   **Language**: [TypeScript](https://www.typescriptlang.org/)
 -   **Icons**: [Lucide React](https://lucide.dev/guide/packages/lucide-react)
--   **Theming**: [next-themes](https://www.npmjs.com/package/next-themes)
 -   **Animations**: [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate)
 
 ## Getting Started
